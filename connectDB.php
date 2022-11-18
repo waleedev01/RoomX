@@ -1,22 +1,27 @@
 <?php
-$dbhost =
-    $_SERVER[
-        'awseb-e-jveqnssyw3-stack-awsebrdsdatabase-qabgiymquueh.chttsa0blrl0.us-east-1.rds.amazonaws.com'
-    ];
-$dbport = $_SERVER['3306'];
-$dbname = $_SERVER['roomx'];
-$charset = 'utf8';
+$servername =
+    'awseb-e-jveqnssyw3-stack-awsebrdsdatabase-qabgiymquueh.chttsa0blrl0.us-east-1.rds.amazonaws.com';
+$username = 'roomx';
+$password = 'roomX123';
+$dbname = 'roomx';
 
-$dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";
-$username = $_SERVER['roomx'];
-$password = $_SERVER['roomX123'];
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-$pdo = new PDO($dsn, $username, $password);
-
-$sql="SELECT * FROM  User;"
-
-$result = mysql_query($sql);
-while($row = mysql_fetch_array($result)) {
-    echo $row['email']; 
+if ($conn->connect_error) {
+    die('Connection failed: ' . $conn->connect_error);
 }
+
+$sql = 'SELECT * FROM User';
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        echo 'email: ' . $row['email'] . '<br>';
+    }
+} else {
+    echo '0 results';
+}
+$conn->close();
 ?>
