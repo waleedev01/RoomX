@@ -1,4 +1,7 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 1);
+
 $servername =
     'awseb-e-jveqnssyw3-stack-awsebrdsdatabase-qabgiymquueh.chttsa0blrl0.us-east-1.rds.amazonaws.com';
 $username = 'roomx';
@@ -12,16 +15,4 @@ if ($conn->connect_error) {
     die('Connection failed: ' . $conn->connect_error);
 }
 
-$sql = 'SELECT * FROM User';
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-        echo 'email: ' . $row['email'] . '<br>';
-    }
-} else {
-    echo '0 results';
-}
-$conn->close();
 ?>
