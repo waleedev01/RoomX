@@ -14,6 +14,7 @@ body {
   width: 86%;
   background-image: linear-gradient(to bottom, #4400ff, #4f8aff);
   border-radius: 5px;
+  height: 600px;
 }
 
 .people-list {
@@ -41,7 +42,7 @@ body {
 }
 .people-list ul {
   padding: 20px;
-  height: 770px;
+  height: 600px;
 }
 .people-list ul li {
   padding-bottom: 20px;
@@ -72,6 +73,8 @@ body {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #434651;
+  height: 600px;
+
 }
 .chat .chat-header {
   padding: 20px;
@@ -117,7 +120,7 @@ body {
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
-  height: 575px;
+  height: 350px;
 }
 .chat .chat-history .message-data {
   margin-bottom: 15px;
@@ -164,7 +167,7 @@ body {
   padding: 30px;
 }
 .chat .chat-message textarea {
-  width: 100%;
+  width: 92%;
   border: none;
   padding: 10px 20px;
   font: 14px/22px "Lato", Arial, sans-serif;
@@ -174,13 +177,17 @@ body {
 }
 .chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
   font-size: 16px;
-  color: gray;
-  cursor: pointer;
+  color: #4400ff;
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
+
 }
 .chat .chat-message button {
   float: right;
   color: #4400ff;
   font-size: 16px;
+  margin-top: 30px;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
