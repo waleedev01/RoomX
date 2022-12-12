@@ -1,3 +1,224 @@
-WELCOME TO ROOMX
+<!DOCTYPE html>
+<html lang="en">
 
-Cloud Computing Project
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features</title>
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <meta charset="utf-8"></head>
+
+<link rel="stylesheet" href="../navbar.css">
+
+
+<div class="navbar">
+  <div class="dropdown">
+    <button class="dropbtn">guest
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+        <a href= "login/login.html">Login</a>
+        <a href="register/register.html">Register</a>
+    </div>
+  </div>
+  <a href="#home">Home</a>
+  <a href="#news">Help Center</a>
+  <a href="#news">Features</a>
+  <center>
+    <div class="logo">
+      <img src="../roomX%20white.png" style="width:10%;height:10%;">
+    </div>
+  </center>
+</div>
+<br>
+
+<style>
+
+  :root {
+    --bs-font-sans-serif: system-ui;
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-line-height: 1.5;
+  }
+  body{
+    background: #343438;
+    color: black;
+  }
+
+  .content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .content li a {
+    padding: 10px 16px;
+
+  }
+
+  .content a:link {
+    color: rebeccapurple;
+    text-decoration: none;
+  }
+
+
+  .content li {
+    float: right;
+  }
+
+
+  .content * {
+    box-sizing: border-box;
+  }
+
+
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width:50%;
+
+    padding: 0 10px;
+    margin-bottom: 2%
+  }
+
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+
+  /* Clear floats after the columns */
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 50%;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+  }
+
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(106, 49, 227, 0.56);
+    border-radius: 25px;
+    color: grey;
+    transition: 0.5s;
+  }
+  .card h2{
+    color: lightgrey;
+    transition: 0.5s;
+  }
+  .card:hover h2{
+    color: white;
+  }
+  .card:hover {
+    box-shadow: 0 4px 8px 0 rgba(33, 18, 79, 0.66);
+    background-image: linear-gradient(to right, #4400ff , #c300ff);
+    color: white;
+  }
+  .card i:hover{
+    color: white;
+  }
+  @charset "UTF-8";
+
+
+  body {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: black;
+  }
+
+  .content hr {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid;
+  }
+
+  .heading{
+    color: white;
+  }
+
+  .content h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .content{
+    padding: 40px 20px 40px 20px;
+  }
+  .features_button {
+    border: 4px solid #a6a6a6;
+    color: white;
+    border-radius: 35px;
+    background-color: rgba(255, 255, 255, 0.0);
+    width: 15%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    transition: 0.5s;
+  }
+  .features_button:hover {
+    border: 4px solid #6900ff;
+    color: white;
+    background-color: white;
+    color: black;
+    opacity: 1;
+  }
+</style>
+
+<body>
+
+<center><h2 class="heading">Features</h2></center>
+
+  <div class="content">
+    <div class="row">
+      <div class="column" >
+        <div class =" card">
+          <h2>Xroom Business App</h2>
+          XRoom is a free to download app that was built with the small business owner in mind. Create a catalog to showcase your products and services. Connect with your customers easily by using tools to automate, sort and quickly respond to messages.
+        </div>
+      </div>
+      <div class="column" >
+        <div class =" card">
+          <h2>End-to-End Encryption</h2>
+          Since most of your personal moments are shared on XRoom, we built a end-to-end encryption into the latest versions of our app. When end-to-end encrypted, only you and the person you're communicating with can read or listen to them, and nobody in between.
+        </div>
+      </div>
+      <center>
+        <button class="features_button">Features</button>
+      </center>
+    </div>
+  </div>
+
+</div>
+</body>
+<br class="bottom break">
+<div class="footer-basic">
+  <footer>
+    <div class="social"><img src="../roomX%20white.png" /></div>
+    <center>Contact us :<br><br>
+      <div class="socialButtons">
+        Email: <a style = "padding-right: 5%; padding-left: 0.5%"href="#"><i class="fa fa-envelope"> </i></a>
+        Twitter: <a style = "padding-right: 5%;padding-left: 0.5%" href="#"><i class="fa fa-twitter"></i></a>
+        Facebook: <a style = "padding-right: 5%;padding-left: 0.5%" href="#"><i class="fa fa-facebook"></i></a>
+      </div>
+    </center>
+    <p class="copyright">Copyright &copy; 2022 RoomX</p>
+  </footer>
+</div>
+</html>

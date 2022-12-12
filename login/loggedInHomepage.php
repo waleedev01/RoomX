@@ -2,6 +2,7 @@
 
 include '../database_connection/connectDB.php';
 include '../session/session.php';
+
 ?>
 <!DOCTYPE html> 
 <html> 
@@ -40,7 +41,9 @@ include '../session/session.php';
         <?php echo "<center> <h1> Welcome $email  </h1> </center> "; ?>
         <form> <center>
             <div class="container"> 
-                <button type="text">Create Room</button> 
+                <a href="../room/createRoom.php">Create Public Room</a> 
+                <a href="../room/createPrivateRoom.php">Create Private Room</a> 
+
                 <button type="text">Join Room</button>
                 <button type="text">Access Open Chats</button>
                 <button type="text">Access Open Rooms</button>

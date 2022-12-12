@@ -5,4 +5,9 @@
         header("location: ../login/login.html");
         exit;
     }
+
+    $query_id = "SELECT user_id FROM User WHERE email = '$email'";
+    $res_id = mysqli_query($conn, $query_id);
+    // store the results in $row variable
+    $row = mysqli_fetch_row($res_id);
 ?>
