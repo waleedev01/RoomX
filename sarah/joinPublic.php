@@ -29,20 +29,6 @@ $stmt->bind_param(
 
 
 
-/* Execute the statement */
-$stmt->execute();
-$row = $stmt->affected_rows;
 
-if ($row > 0) {
-    echo "<script language='javascript'>
-                alert('Account Created');
-                window.location.href = '../index.html';
-              </script>";
-} else {
-    echo "<script language='javascript'>
-                alert('Error. Please retry');
-                window.location.href = 'register.html';
-              </script>";
-}
 
 ?>
