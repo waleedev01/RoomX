@@ -11,17 +11,17 @@ $user_id = $conn->real_escape_string($_POST['id']);
 
 //inset user record
 $query =
-    'INSERT INTO Room (created_time,password, type,status,geo_area,user_id,name) VALUES (?,?,?,?,?,?,?)';
+    'INSERT INTO Room (created_time, type,status,geo_area,user_id,name, password) VALUES (?,?,?,?,?,?,?)';
 $stmt = $conn->prepare($query);
 $stmt->bind_param(
-    'sssssis',
+    'ssssiss',
     $created_time,
-    $hashed_psw,
     $room_type,
     $status,
     $country,
     $user_id,
-    $room_name
+    $room_name,
+    $hashed_psw
 );
 /* Execute the statement */
 $stmt->execute();

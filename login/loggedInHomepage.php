@@ -2,7 +2,6 @@
 
 include '../database_connection/connectDB.php';
 include '../session/session.php';
-
 ?>
 <!DOCTYPE html> 
 <html> 
@@ -43,8 +42,9 @@ include '../session/session.php';
             <div class="container"> 
                 <a href="../room/createRoom.php">Create Public Room</a> 
                 <a href="../room/createPrivateRoom.php">Create Private Room</a> 
+                <a href="../room/joinPrivateRoom.php">Join Private Room</a> 
+                <a href="../room/joinPublicRoom.php">Join Public Room</a> 
 
-                <button type="text">Join Room</button>
                 <button type="text">Access Open Chats</button>
                 <button type="text">Access Open Rooms</button>
             </div> 
