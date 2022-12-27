@@ -1,7 +1,7 @@
 (function(){
   
     var chat = {
-      messageToSend: '',
+      messageToSend: '', 
       messageResponses: [
         'hello.',
         'How are you.',
