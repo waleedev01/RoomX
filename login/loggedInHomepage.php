@@ -2,6 +2,10 @@
 
 include '../database_connection/connectDB.php';
 include '../session/session.php';
+$query_id = "SELECT name FROM User WHERE email = '$email'";
+$res_id = mysqli_query($conn, $query_id);
+// store the results in $row variable
+$row = mysqli_fetch_row($res_id);
 ?>
 <!DOCTYPE html> 
 <html> 
@@ -37,13 +41,15 @@ include '../session/session.php';
         </style> 
     </head>  
     <body>  
-        <?php echo "<center> <h1> Welcome $email  </h1> </center> "; ?>
+        <?php echo "<center> <h1> Welcome $row[0]  </h1> </center> "; ?>
         <form> <center>
             <div class="container"> 
-                <button type="text">Create Room</button> 
-                <button type="text">Join Room</button>
-                <button type="text">Access Open Chats</button>
-                <button type="text">Access Open Rooms</button>
+                <a href="../room/createRoom.php">Create Public Room</a> 
+                <a href="../room/createPrivateRoom.php">Create Private Room</a> 
+                <a href="../room/joinPrivateRoom.php">Join Private Room</a> 
+                <a href="../room/joinPublicRoom.php">Join Public Room</a> 
+                <a href="../chat/Openchat.php">Access Rooms that you joined</a> 
+                <a href="../room/manageRoom.php">Manage Rooms that you created</a> 
             </div> 
         </form>   
     </body>   
