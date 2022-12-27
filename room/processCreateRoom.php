@@ -26,10 +26,29 @@ $stmt->execute();
 $row = $stmt->affected_rows;
 
 if ($row > 0) {
-    echo "<script language='javascript'>
-                alert('Room Created');
-                window.location.href = '../login/loggedInHomepage.php';
-              </script>";
+    $room_id_inserted= mysqli_insert_id($conn);
+    $query ='INSERT INTO RoomMembers (room_id,user_id, time_joined) VALUES (?,?,?)';
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param(
+        'iis',
+        $room_id_inserted,
+        $user_id,
+        $created_time
+    );
+    /* Execute the statement */
+    $stmt->execute();
+    $row = $stmt->affected_rows;
+    if ($row > 0) {
+        echo "<script language='javascript'>
+                    alert('Room Created');
+                    window.location.href = '../login/loggedInHomepage.php';
+                </script>";
+    } else {
+        echo "<script language='javascript'>
+                    alert('Error. Please retry');
+                    window.location.href = 'createRoom.php';
+                </script>";
+    }
 } else {
     echo "<script language='javascript'>
                 alert('Error. Please retry');
