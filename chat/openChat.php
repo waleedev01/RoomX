@@ -27,6 +27,10 @@ include '../session/session.php';
             $in_text = implode(',',array_map('implode',$new_array));
             $query_rooms = "SELECT * FROM Room WHERE room_id IN($in_text)";
             $res_rooms = mysqli_query($conn, $query_rooms);
+            $query_id = "SELECT user_id FROM User WHERE email = '$email'";
+            $res_id = mysqli_query($conn, $query_id);
+            // store the results in $row variable
+            $a = mysqli_fetch_row($res_id);
             // store the results in $row variable
         //table to show completed jobs
         echo "<h3 class='my-5'>Your chats</h1>";
@@ -41,20 +45,20 @@ include '../session/session.php';
                 echo "<th>Geo Area</th>";
                 echo "<th>Type</th>";
                 echo "<th>Status</th>";
-
                 echo "<th>Open</th>";
 
                 echo "</tr>";
                 if ($res_rooms->num_rows > 0) {
                     // output data of each row
                     while($row = $res_rooms->fetch_assoc()) {
-                        echo"<form action = 'processJoinPublicRoom.php' method='POST'>";  
+                        echo"<form action = 'processOpenChat.php' method='POST'>";  
                         echo "<tr>";
+                        echo "<input type='hidden' name='id' value='" . $a[0] . "'>";
                         echo "<td>" . $row["name"] . "</td>";
                         echo "<td>" . $row["geo_area"] . "</td>";
                         echo "<td>" . $row["type"] . "</td>";
                         echo "<td>" . $row["status"] . "</td>";
-
+                        echo "<td><input type='submit' name='open' value='" . $row['room_id'] . "' /><br/></td>";
                         echo "</tr>";
                         echo"</form>";           
                     }
