@@ -9,12 +9,13 @@ include '../session/session.php';
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="tableSearch.js"></script>
+<link rel="stylesheet" href="tables.css">
 <head>
-<style>
-        body{text-align: center; }
-</style> 
-<body> 
 
+<body>
+<h1 class='my-5'>Join Public Rooms</h1>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
 <?php
             //select all the jobs that has been completed
@@ -25,12 +26,12 @@ include '../session/session.php';
             // store the results in $row variable
             $a = mysqli_fetch_row($res_id);
         //table to show completed jobs
-        echo "<h3 class='my-5'>Join Public Rooms</h1>";
+//         echo "<h3 class='my-5'>Join Public Rooms</h1>";
         echo "<div class='container'>";
         echo "<div class='row-fluid'>";
             echo "<div class='col-xs-12'>";
             echo "<div class='table-responsive'>";    
-                echo "<table class='table table-hover table-inverse'>";
+                echo "<table class='table table-hover table-inverse' id='myTable'>";
                 
                 echo "<tr>";
                 echo "<th>Room name</th>";
