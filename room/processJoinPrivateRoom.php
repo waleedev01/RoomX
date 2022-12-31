@@ -9,7 +9,7 @@ $created_time = date('m/d/Y h:i:s a', time());
 
 $query_room_id = "SELECT room_id FROM Room WHERE room_id = '$room_id'";
 $res_room_id = mysqli_query($conn, $query_room_id);
-$query = "SELECT room_id,password FROM Room WHERE room_id = '$room_id' AND password = '$hashed_login'";
+$query = "SELECT room_id,password FROM Room WHERE room_id = '$room_id' AND password = '$password' AND status='open'";
 // execute the query
 $result = $conn->query($query);
 // store the results in $row variable

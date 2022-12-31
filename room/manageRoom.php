@@ -34,21 +34,28 @@ include '../session/session.php';
                 echo "<th>Geo Area</th>";
                 echo "<th>Type</th>";
                 echo "<th>Status</th>";
+                echo "<th>Password</th>";
                 echo "<th>Close</th>";
                 echo "<th>View</th>";
                 echo "</tr>";
                 if ($res_rooms->num_rows > 0) {
                     // output data of each row
                     while($row = $res_rooms->fetch_assoc()) {
-                        echo"<form action = 'processJoinPublicRoom.php' method='POST'>";  
+                        echo"<form action = 'processCloseRoom.php' method='POST'>";  
                         echo "<tr>";
                         echo "<td>" . $row["room_id"] . "</td>";
                         echo "<td>" . $row["name"] . "</td>";
                         echo "<td>" . $row["geo_area"] . "</td>";
                         echo "<td>" . $row["type"] . "</td>";
                         echo "<td>" . $row["status"] . "</td>";
-                        echo "<td>close</td>";
-                        echo "<td><input type='submit' name='view' value='" . $row['room_id'] . "' /><br/></td>";
+                        echo "<td>" . $row["password"] . "</td>";
+                        if ($row["status"] == "open"){
+                            echo "<td><input type='submit' name='close' value='" . $row['room_id'] . "' /><br/></td>";
+                            echo "<td><input type='submit' name='view' value='" . $row['room_id'] . "' /><br/></td>";
+                        }
+                        else
+                            echo "<td>Room is closed</td>";
+
                         echo "</tr>";
                         echo"</form>";           
                     }

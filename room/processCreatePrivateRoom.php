@@ -21,7 +21,7 @@ $stmt->bind_param(
     $country,
     $user_id,
     $room_name,
-    $hashed_psw
+    $password
 );
 /* Execute the statement */
 $stmt->execute();

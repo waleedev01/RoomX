@@ -9,16 +9,10 @@ $row = mysqli_fetch_row($res_id);
 ?>
 <!DOCTYPE html> 
 <html> 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> 
+<title> 
             Homepage 
         </title>
-    <head>
-      <link rel="stylesheet" href="../features.css" />
-
-    </head>
-    <body>
+      <?php include '../header.php';?>
     <section>
       <div class="row">
         <?php echo "<h1> Welcome '$row[0]'  </h1>"; ?>

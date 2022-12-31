@@ -9,6 +9,13 @@ include '../session/session.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../form.css">
   <title> Create a Private Room </title>
+  <div class="text-center text-lg-start">
+                <a href="../login/loggedInHomepage.php" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Go Back</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+  </div>
+
 </head>
 <body>
 <center>

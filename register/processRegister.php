@@ -14,6 +14,8 @@ if (mysqli_num_rows($result) > 0) {
     //check if the user already exists
     echo "<script language='javascript'>
                 alert('Email is already in the database');
+                window.location.href = 'register.html';
+
             </script>";
 }
 
@@ -36,7 +38,7 @@ $row = $stmt->affected_rows;
 if ($row > 0) {
     echo "<script language='javascript'>
                 alert('Account Created');
-                window.location.href = '../index.html';
+                window.location.href = '../login/login.html';
               </script>";
 } else {
     echo "<script language='javascript'>

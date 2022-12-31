@@ -2,6 +2,8 @@
 
 include '../database_connection/connectDB.php';
 include '../session/session.php';
+error_reporting(E_ERROR | E_PARSE);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +19,9 @@ include '../session/session.php';
 
 
 <?php
-
             $query = "SELECT room_id FROM RoomMembers WHERE user_id= '$row[0]'";
             $result = mysqli_query($conn, $query);
+            if(mysqli_num_rows($result) > 0){
             //select all the jobs that has been completed
             while( $row = mysqli_fetch_assoc( $result)){
                 $new_array[] = $row; // Inside while loop
@@ -31,6 +33,7 @@ include '../session/session.php';
             $res_id = mysqli_query($conn, $query_id);
             // store the results in $row variable
             $a = mysqli_fetch_row($res_id);
+        }
             // store the results in $row variable
         //table to show completed jobs
         echo "<h3 class='my-5'>Your chats</h1>";
@@ -46,19 +49,27 @@ include '../session/session.php';
                 echo "<th>Type</th>";
                 echo "<th>Status</th>";
                 echo "<th>Open</th>";
-
+                echo "<th>Leave</th>";
                 echo "</tr>";
                 if ($res_rooms->num_rows > 0) {
                     // output data of each row
                     while($row = $res_rooms->fetch_assoc()) {
-                        echo"<form action = 'processOpenChat.php' method='POST'>";  
+                        echo"<form action = 'processLeaveRoom.php' method='POST'>";  
                         echo "<tr>";
                         echo "<input type='hidden' name='id' value='" . $a[0] . "'>";
                         echo "<td>" . $row["name"] . "</td>";
                         echo "<td>" . $row["geo_area"] . "</td>";
                         echo "<td>" . $row["type"] . "</td>";
                         echo "<td>" . $row["status"] . "</td>";
-                        echo "<td><input type='submit' name='open' value='" . $row['room_id'] . "' /><br/></td>";
+                        if ($row["status"] == "open")
+                            echo "<td><input type='submit' name='open' value='" . $row['room_id'] . "' /><br/></td>";
+                        else
+                            echo "<td>Room is closed</td>";
+                        if ($row["user_id"] != $a[0])
+                            echo "<td><input type='submit' name='leave' value='" . $row['room_id'] . "' /><br/></td>";
+                        else
+                            echo "<td>You are the owner</td>";
+
                         echo "</tr>";
                         echo"</form>";           
                     }
