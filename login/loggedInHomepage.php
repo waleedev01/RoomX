@@ -87,7 +87,7 @@ $row = mysqli_fetch_row($res_id);
         </div>
         <!-- Column Two -->
         <div class="column">
-        <a href="../chat/Openchat.php">
+        <a href="../chat/openChat.php">
           <div class="card">
 
             <div class="icon">
