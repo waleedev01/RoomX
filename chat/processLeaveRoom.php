@@ -72,25 +72,21 @@ else{
     
             //insert message record
         $query =
-        'INSERT INTO Message (time_sent, message_body,room_id,user_id) VALUES (?,?,?,?)';
+        'INSERT INTO Message (message_body,room_id,user_id,time_sent) VALUES (?,?,?,?)';
         $stmt = $conn->prepare($query);
         $stmt->bind_param(
-        'ssii',
-        $created_time,
+        'siis',
         $message,
         $room,
-        $user
+        $user,
+        $created_time
         );
         /* Execute the statement */
         $stmt->execute();
         $row = $stmt->affected_rows;
     
         if ($row > 0) {
-            echo "<script language='javascript'>
-                            alert('Message sent');
-                        </script>";
-    
-        }
+            echo '';        }
         else{
             echo "<script language='javascript'>
                             alert('Error. Please retry');
@@ -98,7 +94,6 @@ else{
                         </script>";
             }
     }
-    
     
 }
 
