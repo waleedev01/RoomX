@@ -10,49 +10,115 @@ $row = mysqli_fetch_row($res_id);
 <!DOCTYPE html> 
 <html> 
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> 
             Homepage 
         </title>
-        <style> 
-            Body {
-            font-family: Calibri, Helvetica, sans-serif;
-            }
+    <head>
+      <link rel="stylesheet" href="../features.css" />
 
-            button { 
-                    background-color: blue; 
-                    width: 50%;
-                    color: white; 
-                    padding: 15px; 
-                    margin: 10px 0px; 
-                    border: none; 
-                    cursor: pointer; 
-                    } 
+    </head>
+    <body>
+    <section>
+      <div class="row">
+        <?php echo "<h1> Welcome '$row[0]'  </h1>"; ?>
+      </div>
+      <div class="row">
+        <!-- Column One -->
+        <div class="column">
+        <a href="../room/createRoom.php">
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <h3>Create Public Room</h3>
+            <p>
+              please write a description please write a description please write a description please write a description
+            </p>
+          </div>
+          </a>
+        </div>
+        <!-- Column Two -->
+        <div class="column">
+        <a href="../room/createPrivateRoom.php">
+          <div class="card">
 
-            button:hover { 
-                    opacity: 0.7; 
-                } 
+            <div class="icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Create Private Room</h3>
+            <p>
+              please write a description please write a description please write a description please write a description
+            </p>
+          </div>
+          </a>
+        </div>
+        <!-- Column Three -->
+        <div class="column">
+        <a href="../room/joinPrivateRoom.php">
+          <div class="card">
 
-            
-            
-            .container { 
-                    padding: 50px; 
-                }   
-        </style> 
-    </head>  
-    <body>  
-        <?php echo "<center> <h1> Welcome $row[0]  </h1> </center> "; ?>
-        <form> <center>
-            <div class="container"> 
-                <a href="../room/createRoom.php">Create Public Room</a> 
-                <a href="../room/createPrivateRoom.php">Create Private Room</a> 
-                <a href="../room/joinPrivateRoom.php">Join Private Room</a> 
-                <a href="../room/joinPublicRoom.php">Join Public Room</a> 
-                <a href="../chat/Openchat.php">Access Rooms that you joined</a> 
-                <a href="../room/manageRoom.php">Manage Rooms that you created</a> 
-            </div> 
-        </form>   
-    </body>   
+            <div class="icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3>Join Private Room</h3>
+            <p>
+              please write a description please write a description please write a description please write a description
+            </p>
+          </div>
+          </a>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <!-- Column One -->
+        <div class="column">
+          <a href="../room/joinPublicRoom.php">
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <h3>Join Public Room</h3>
+            <p>
+              please write a description please write a description please write a description please write a description
+            </p>
+          </div>
+          </a>
+        </div>
+        <!-- Column Two -->
+        <div class="column">
+        <a href="../room/Openchat.php">
+          <div class="card">
+
+            <div class="icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Access Rooms that you joined</h3>
+            <p>
+              please write a description please write a description please write a description please write a description
+            </p>
+          </div>
+          </a>
+        </div>
+        <!-- Column Three -->
+        <div class="column">
+        <a href="../room/manageRoom.php">
+          <div class="card">
+
+            <div class="icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3>Manage Rooms that you created</h3>
+            <p>
+              please write a description please write a description please write a description please write a description
+            </p>
+          </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    </body>
+    </html>
 </html>
 
 
