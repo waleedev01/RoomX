@@ -21,7 +21,7 @@ else{
         $user_id = $conn->real_escape_string($_POST['user_id']);
         $room_id = $conn->real_escape_string($_POST['room_id']);
     }
-    $query = "SELECT * FROM Message WHERE user_id= '$user_id' and room_id ='$room_id'";
+    $query = "SELECT * FROM Message WHERE room_id ='$room_id'";
     $result = mysqli_query($conn, $query);
     
     $query_name = "SELECT name FROM User WHERE user_id = '$user_id'";
@@ -42,11 +42,14 @@ else{
             <div id="wrapper">
                 <div id="menu">
                     <p class="welcome">Welcome, <?php echo $name[0] ?><b></b></p>
-                    <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+                    <p class="logout"><a id="exit" href="openChat.php">Go Back</a></p>
                 </div>
     
                 <div id="chatbox">            
                     <?php  while( $row = mysqli_fetch_assoc( $result)){
+                            $query_name = "SELECT name FROM User WHERE user_id = '$row[user_id]'";
+                            $res_name = mysqli_query($conn, $query_name);
+                            $name = mysqli_fetch_row($res_name);
                 if(isset($row['file_path']))
                     echo "<div class='msgln'><span class='chat-time'>".$row['time_sent']."</span> <b class='user-name'>".$name[0]."</b><a href=".$row['file_path'].">" .$row['message_body']."</a><br></div>";?>
                 <?php if(!isset($row['file_path']))
@@ -59,7 +62,7 @@ else{
                     <td><input type='submit' name='send' value='Send'></td>
                 </form>
                 <form action="" method="Post" enctype="multipart/form-data">
-                    <input type="file" name="fileToUpload">
+                    <input type="file" required name="fileToUpload">
                     <?php echo "<input type='hidden' name='room_id' value='" . $room_id . "'>";?>
                     <?php echo "<input type='hidden' name='user_id' value='" . $user_id . "'>";?>
                     <td><input type='submit' name='image' value='Send Image'></td>
@@ -123,9 +126,7 @@ else{
             $filename = $_FILES["fileToUpload"]["name"];
             $filetype = $_FILES["fileToUpload"]["type"];
             $filesize = $_FILES["fileToUpload"]["size"];
-            echo $filename;
-            echo $filetype;
-            echo $filesize;
+
         // Validate file extension
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
@@ -148,7 +149,6 @@ else{
             'Key'    => $key,
             'Body'   => fopen($file_Path, 'r'),
         ]);
-        echo "Image uploaded successfully. Image path is: ". $result->get('ObjectURL');
         $path = $result->get('ObjectURL');
         $query =
         'INSERT INTO Message (message_body,room_id,user_id,time_sent, file_path) VALUES (?,?,?,?,?)';
@@ -170,14 +170,13 @@ else{
         else{
             echo "<script language='javascript'>
                             alert('Error. Please retry');
-                            window.location.href = 'createPrivateRoom.php';
+                            window.location.href = 'processLeaveRoom.php';
                         </script>";
             }
         } catch (Aws\S3\Exception\S3Exception $e) {
         echo "There was an error uploading the file.\n";
         echo $e->getMessage();
         }
-        echo "Your file was uploaded successfully.";
         }else{
         echo "File is not uploaded";
         }

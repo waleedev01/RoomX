@@ -36,7 +36,6 @@ include '../session/session.php';
                 echo "<th>Status</th>";
                 echo "<th>Password</th>";
                 echo "<th>Close</th>";
-                echo "<th>View</th>";
                 echo "</tr>";
                 if ($res_rooms->num_rows > 0) {
                     // output data of each row
@@ -51,7 +50,6 @@ include '../session/session.php';
                         echo "<td>" . $row["password"] . "</td>";
                         if ($row["status"] == "open"){
                             echo "<td><input type='submit' name='close' value='" . $row['room_id'] . "' /><br/></td>";
-                            echo "<td><input type='submit' name='view' value='" . $row['room_id'] . "' /><br/></td>";
                         }
                         else
                             echo "<td>Room is closed</td>";
