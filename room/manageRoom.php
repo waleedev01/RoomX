@@ -11,10 +11,11 @@ include '../session/session.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="tableSearch.js"></script>
 <link rel="stylesheet" href="tables.css">
+<?php include '../headerBack.php';?>
 <head>
 
-<body> 
-<h1 class='my-5'>Rooms created by you</h1>
+<body style="text-align: center;">
+<h1 class='my-5' style="padding-top: 20px;">Rooms created by you</h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
 <?php

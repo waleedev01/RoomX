@@ -8,10 +8,12 @@ include '../session/session.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../form.css">
   <title> Create a Private Room </title>
+  <?php include '../headerBack.php';?>
 </head>
 <body>
 <center>
-  <h1 class="hTitle">
+  <h1 class="hTitle" style="
+    padding-top: 80px;">
     Create a Private Room
   </h1>
 </center>
