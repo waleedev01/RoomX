@@ -21,7 +21,7 @@ include '../session/session.php';
 <div class="wrapperRoom">
   <div id="formContent">
     <!-- Tabs Titles -->
-    <h2 class="active"> Join Private </h2>
+    <h2 class="active" style="font-size:16px; text-align:center; font-weight:900; margin:40px 8px 10px 8px"> Join Private </h2>
 
     <!-- Login Form -->
     <form action="processJoinPrivateRoom.php" method="post">
