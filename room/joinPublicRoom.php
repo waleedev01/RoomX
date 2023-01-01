@@ -18,20 +18,31 @@ include '../session/session.php';
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
 <?php
-//select all the jobs that has been completed
+            //get user id
             $query_id = "SELECT user_id FROM User WHERE email = '$email'";
             $res_id = mysqli_query($conn, $query_id);
             $a = mysqli_fetch_row($res_id);
+
+            //get rooms joined
             $query_rooms = "SELECT room_id FROM RoomMembers WHERE user_id = '$a[0]'";
             $res_rooms = mysqli_query($conn, $query_rooms);
-            while( $row = mysqli_fetch_assoc( $res_rooms)){
-                $new_array[] = $row; // Inside while loop
-            }
-            $in_text = implode(',',array_map('implode',$new_array));
 
-            //select all the jobs that has been completed
-            $query = "SELECT * FROM Room WHERE type='public' and status='open' and room_id NOT IN ($in_text) ";
-            $result = mysqli_query($conn, $query);
+            //check if joined at least one room
+            if ($res_rooms->num_rows > 0) {
+                while( $row = mysqli_fetch_assoc( $res_rooms)){
+                    $new_array[] = $row; // Inside while loop
+                }
+                $in_text = implode(',',array_map('implode',$new_array));
+
+                //select all the public rooms not joined
+                $query = "SELECT * FROM Room WHERE type='public' and status='open' and room_id NOT IN ($in_text) ";
+                $result = mysqli_query($conn, $query);
+            }
+
+            else{
+                $query = "SELECT * FROM Room WHERE type='public' and status='open'";
+                $result = mysqli_query($conn, $query);  
+            }
 
             // store the results in $row variable
         //table to show completed jobs
