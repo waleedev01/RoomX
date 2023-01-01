@@ -9,17 +9,13 @@ include '../session/session.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../form.css">
   <title> Create a Private Room </title>
-  <div class="text-center text-lg-start">
-                <a href="../login/loggedInHomepage.php" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                  <span>Go Back</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
-  </div>
+  <?php include '../headerBack.php';?>
 
 </head>
 <body>
 <center>
-  <h1 class="hTitle">
+  <h1 class="hTitle" style="
+    padding-top: 80px;">
     Create a Private Room
   </h1>
 </center>
@@ -27,8 +23,8 @@ include '../session/session.php';
 <div class="wrapperRoom">
   <div id="formContent">
     <!-- Tabs Titles -->
-    <h2 class="underlineHover" ><a style="text-decoration:none; color:Black" href="createRoom.php"> Create Public </a></h2>
-    <h2 class="active"> Create Private </h2>
+    <h2 class="underlineHover" style="font-size:16px; text-align:center; font-weight:600; margin:40px 8px 10px 8px"><a style="text-decoration:none; color:Black" href="createRoom.php"> Create Public </a></h2>
+    <h2 class="active" style="font-size:16px; text-align:center; font-weight:900; margin:40px 8px 10px 8px"> Create Private </h2>
 
     <!-- Login Form -->
     <form action="processCreatePrivateRoom.php" method="post">

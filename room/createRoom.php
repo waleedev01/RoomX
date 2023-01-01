@@ -9,10 +9,12 @@ include '../session/session.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../form.css">
   <title> Create a Public Room </title>
+  <?php include '../headerBack.php';?>
 </head>
 <body>
 <center>
-  <h1 class="hTitle">
+  <h1 class="hTitle" style="
+    padding-top: 80px;">
     Create a Public Room
   </h1>
 </center>
@@ -20,8 +22,8 @@ include '../session/session.php';
 <div class="wrapperRoom">
   <div id="formContent">
     <!-- Tabs Titles -->
-    <h2 class="active"> Create Public </h2>
-    <h2 class="underlineHover" ><a style="text-decoration:none; color:Black" href="createPrivateRoom.php"> Create Private </a></h2>
+    <h2 class="active" style="font-size:16px; text-align:center; font-weight:900; margin:40px 8px 10px 8px"> Create Public </h2>
+    <h2 class="underlineHover" style="font-size:16px; text-align:center; font-weight:600; margin:40px 8px 10px 8px"><a style="text-decoration:none; color:Black" href="createPrivateRoom.php"> Create Private </a></h2>
     <!-- Form -->
     <form action="processCreateRoom.php" method="post">
       <input type="text" id="name" name="name" placeholder="Room name" required>

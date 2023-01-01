@@ -11,13 +11,13 @@ error_reporting(E_ERROR | E_PARSE);
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="../room/tables.css">
+<?php include '../headerBack.php';?>
 <head>
-<style>
-        body{text-align: center; }
-</style> 
-<body> 
 
-
+<body style="text-align: center;">
+<h1 class='my-5' style="padding-top: 20px;">Your Chats</h1>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 <?php
             $query = "SELECT room_id FROM RoomMembers WHERE user_id= '$row[0]'";
             $result = mysqli_query($conn, $query);
@@ -36,12 +36,11 @@ error_reporting(E_ERROR | E_PARSE);
         }
             // store the results in $row variable
         //table to show completed jobs
-        echo "<h3 class='my-5'>Your chats</h1>";
         echo "<div class='container'>";
         echo "<div class='row-fluid'>";
             echo "<div class='col-xs-12'>";
             echo "<div class='table-responsive'>";    
-                echo "<table class='table table-hover table-inverse'>";
+                echo "<table class='table table-hover table-inverse' id='myTable'>";
                 
                 echo "<tr>";
                 echo "<th>Room name</th>";
