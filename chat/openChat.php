@@ -13,11 +13,19 @@ error_reporting(E_ERROR | E_PARSE);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="../room/tables.css">
 <?php include '../headerBack.php';?>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        setInterval(
+            function (){
+                $('#myRooms').load('loadMyChats.php');
+            }, 5000);
+    </script> -->
 <head>
 
 <body style="text-align: center;">
 <h1 class='my-5' style="padding-top: 20px;">Your Chats</h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<div id="myRooms">
 <?php
             $query = "SELECT room_id FROM RoomMembers WHERE user_id= '$row[0]'";
             $result = mysqli_query($conn, $query);
@@ -80,3 +88,5 @@ error_reporting(E_ERROR | E_PARSE);
     
             echo "</div>";
             echo "</div>";
+            ?>
+</div>
