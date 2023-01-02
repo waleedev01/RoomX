@@ -28,6 +28,11 @@ else{
     $res_name = mysqli_query($conn, $query_name);
     // store the results in $row variable
     $name = mysqli_fetch_row($res_name);
+
+    $query_room_name = "SELECT name FROM Room WHERE room_id = '$room_id'";
+    $res_room_name = mysqli_query($conn, $query_room_name);
+    // store the results in $row variable
+    $room_name = mysqli_fetch_row($res_room_name);
     ?>
     <link rel="stylesheet" href="chat.css">
     <body>
@@ -38,7 +43,7 @@ else{
                     <button style="font-size: 40px;border: none;background-color: white;color: #d33633"><</button>
                 </a>
                 <div class="details">
-                    <span>chatname</span>
+                    <span>Room: <?php echo $room_name[0] ?></span>
                     <p>Welcome, <?php echo $name[0] ?></p>
                 </div>
             </header>
