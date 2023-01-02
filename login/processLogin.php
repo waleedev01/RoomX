@@ -21,12 +21,12 @@ if (!isset($row[0]) || !isset($row[1])) {
         //code  to check if the email exists
         echo "<script language='javascript'>
                         alert('Incorrect Password');
-                        window.location.href = 'login.html';
+                        window.location.href = 'login.php';
                     </script>";
     } else {
         echo "<script language='javascript'>
                         alert('Please enter valid credentials.');
-                        window.location.href = 'login.html';
+                        window.location.href = 'login.php';
                     </script>";
     }
 } else {
