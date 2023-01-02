@@ -34,6 +34,13 @@ else{
     // store the results in $row variable
     $room_name = mysqli_fetch_row($res_room_name);
     ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        setInterval(
+            function (){
+                $('#loadChat').load('loadChatHistory.php');
+            }, 2000);
+    </script>
     <link rel="stylesheet" href="chat.css">
     <body>
     <div class="wrapper">
@@ -48,9 +55,10 @@ else{
                 </div>
             </header>
 
-            <div class="chat-box">
+            <div class="chat-box" id="loadChat">
 
-                <?php  while( $row = mysqli_fetch_assoc( $result)){
+                <?php
+                while( $row = mysqli_fetch_assoc( $result)){
                     $query_name = "SELECT name FROM User WHERE user_id = '$row[user_id]'";
                     $res_name = mysqli_query($conn, $query_name);
                     $name = mysqli_fetch_row($res_name);

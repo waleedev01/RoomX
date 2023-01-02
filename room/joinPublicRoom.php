@@ -12,12 +12,19 @@ include '../session/session.php';
 <script src="tableSearch.js"></script>
 <link rel="stylesheet" href="tables.css">
 <?php include '../headerBack.php';?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    setInterval(
+        function (){
+            $('#publicRooms').load('loadPublicRooms.php');
+        }, 5000);
+</script>
 <head>
 
 <body style="text-align: center;">
 <h1 class='my-5' style="padding-top: 20px;">Join Public Rooms</h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-
+<div id="publicRooms">
 <?php
             //get user id
             $query_id = "SELECT user_id FROM User WHERE email = '$email'";
@@ -80,4 +87,5 @@ include '../session/session.php';
                 echo "</table>";
     
             echo "</div>";
-            echo "</div>";
+            ?>
+            </div>
