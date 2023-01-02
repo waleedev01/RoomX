@@ -159,6 +159,9 @@ body{
     box-shadow: 0 0 32px rgb(0 0 0 / 8%),
     0rem 16px 16px -16px rgb(0 0 0 / 10%);
 }
+.msgln{
+    color: #7a7a7a
+}
 .chat-box .outgoing{
     display: flex;
 }
@@ -181,8 +184,8 @@ body{
     max-width: calc(100% - 130px);
 }
 .incoming .details p{
-    background: #4154f1;
-    color:  #fff;
+    background: #c3c3e5;
+    color: #000000;
     border-radius: 18px 18px 18px 0;
 }
 .typing-area{

@@ -16,7 +16,7 @@ include '../session/session.php';
 
 <body style="text-align: center;">
 <h1 class='my-5' style="padding-top: 20px;">Rooms created by you</h1>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for room IDs..">
 
 <?php
         $query_rooms = "SELECT * FROM Room WHERE user_id='$row[0]'";
