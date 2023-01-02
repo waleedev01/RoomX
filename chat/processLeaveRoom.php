@@ -50,10 +50,10 @@ else{
                     $res_name = mysqli_query($conn, $query_name);
                     $name = mysqli_fetch_row($res_name);
                     if(isset($row['file_path']))
-                        echo "<div class='msgln'><span class='chat-time'>".$row['time_sent']."</span> <b class='user-name'>".$name[0]."</b></div> <div class='chat outgoing'><div class='details'><a href=".$row['file_path']."><img style='max-width: 300;'alt=''src='".$row['file_path']."' ></a></div></div>";?>
+                        echo "<div class='msgln'><span class='chat-time'>".$row['time_sent']."</span> <b class='user-name'>".$name[0]."</b></div> <div class='chat incoming'><div class='details'><a href=".$row['file_path']."><img style='max-width: 300;'alt=''src='".$row['file_path']."' ></a></div></div>";?>
 
                     <?php if(!isset($row['file_path']))
-                        echo "<div class='msgln'><span class='chat-time'>".$row['time_sent']."</span> <b class='user-name'>".$name[0]."</b></div> <div class='chat outgoing'><div class='details'><p>".$row['message_body']."</p></div></div>";}?>
+                        echo "<div class='msgln'><span class='chat-time'>".$row['time_sent']."</span> <b class='user-name'>".$name[0]."</b></div> <div class='chat incoming'><div class='details'><p>".$row['message_body']."</p></div></div>";}?>
 
             </div>
 
