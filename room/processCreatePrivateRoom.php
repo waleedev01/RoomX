@@ -42,7 +42,7 @@ if ($row > 0) {
     $row = $stmt->affected_rows;
     if ($row > 0) {
         echo "<script language='javascript'>
-                    alert('Room Created');
+                    alert('Room Created<br> Room id: $room_id_inserted');
                     window.location.href = '../login/loggedInHomepage.php';
                 </script>";
     } else {
