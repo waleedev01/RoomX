@@ -104,28 +104,32 @@ else{
         $message = $conn->real_escape_string($_POST['message']);
         $created_time = date('m/d/Y h:i:s a', time());
 
-        //insert message record
-        $query =
-            'INSERT INTO Message (message_body,room_id,user_id,time_sent) VALUES (?,?,?,?)';
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param(
-            'siis',
-            $message,
-            $room,
-            $user,
-            $created_time
-        );
-        /* Execute the statement */
-        $stmt->execute();
-        $row = $stmt->affected_rows;
+        if (!empty($message)) {
+            //insert message record
+            $query =
+                'INSERT INTO Message (message_body,room_id,user_id,time_sent) VALUES (?,?,?,?)';
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param(
+                'siis',
+                $message,
+                $room,
+                $user,
+                $created_time
+            );
+            /* Execute the statement */
+            $stmt->execute();
+            $row = $stmt->affected_rows;
 
-        if ($row > 0) {
-            echo '';        }
-        else{
-            echo "<script language='javascript'>
+            if ($row > 0) {
+                echo '';        }
+            else{
+                echo "<script language='javascript'>
                             alert('Error. Please retry');
                             window.location.href = 'createPrivateRoom.php';
                         </script>";
+            }
+        } else {
+
         }
     }
     if (isset($_POST['image'])) {
