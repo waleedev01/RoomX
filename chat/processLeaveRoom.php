@@ -142,8 +142,8 @@ else{
             'version' => 'latest',
             'region'  => 'us-east-1',
             'credentials' => [
-                'key'    => 'AKIA3CXARAT72MUBUPWU',
-                'secret' => '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'
+                'key'    => 'AKIA3CXARAT73QISV4T7',
+                'secret' => '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'
             ]
         ]);
 
